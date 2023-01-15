@@ -63,7 +63,7 @@ There are three major components to this project.
 [MIT OPENSOURCE LICENSE](LICENSE.TXT)
 ## Acknowledgements
 - [Udacity](https://www.udacity.com/) for designing the project, providing images, and templates. 
-- [The Keras Blog and Francois Chollet]([https://appen.com/](https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html)) for providing a tutorial on image augmentation, transfer learning, and model fine-tuning.
+- [The Keras Blog and Francois Chollet](https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html) for providing a tutorial on image augmentation, transfer learning, and model fine-tuning.
 
 ## Screenshots
 ![Webapp Plots](PlotlyPlots.PNG "Webapp Plots")
