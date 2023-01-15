@@ -11,8 +11,6 @@
 ## Description
 This Udacity project applies convolutional neural networks and transfer learning to an image classification problem. This guided project's goal is to classify the images of dogs based on their breed. A function is built that will accept any user-supplied image as input. If a dog is detected in the image, it will provide an estimate of the dog's breed. If a human is detected, it will provide an estimate of the dog breed that is most resembling.
 
-analyzes disaster data from [Figure Eight](https://appen.com/) to build a model for an API that classifies disaster messages. In this repository you'll find a data set containing real messages that were sent during disaster events. A machine learning pipeline is created to categorize these events so that you can send the messages to an appropriate disaster relief agency. This project includes a web app where an emergency worker can input a new message and get classification results in several categories. The web app will also display visualizations of the data. 
-
 There are three major components to this project.
 1. ETL Pipeline: This part of the project was provided by Udacity.
 2. ML Pipeline: dog_recog.py, dog_app.ipynb, and ... maybe more???
@@ -31,14 +29,15 @@ There are three major components to this project.
 
 ## Getting Started
 ### Dependencies
+
 - Python 3
-- ETL Library: Pandas and Numpy
-- Machine Learning Library: Sklearn
-- Natural Language Processing Library: NLTK
-- SQLite Database Library: SQLalchemy
-- Serialization Library: Pickle
+- Sklearn
+- Numpy
+- Tensorlow,
+- CV2
 - Web App Library: Flask
 - Data Visualization Library: Plotly
+
 ### Running the Code
 - Running the ETL Pipeline
     1. Navigate to the project's data directory. 
@@ -63,8 +62,8 @@ There are three major components to this project.
 ## License
 [MIT OPENSOURCE LICENSE](LICENSE.TXT)
 ## Acknowledgements
-- [Udacity](https://www.udacity.com/) for designing the project, providing disaster response files and templates. 
-- [Figure Eight](https://appen.com/) for providing Udacity with their data.
+- [Udacity](https://www.udacity.com/) for designing the project, providing images, and templates. 
+- [The Keras Blog and Francois Chollet]([https://appen.com/](https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html)) for providing a tutorial on image augmentation, transfer learning, and model fine-tuning.
 
 ## Screenshots
 ![Webapp Plots](PlotlyPlots.PNG "Webapp Plots")
