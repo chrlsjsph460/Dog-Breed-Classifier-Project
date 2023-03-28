@@ -18,40 +18,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dog Breed Classifier</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../static/main.css">
   </head>
   <body>
-	<div class = "row"> 
-		<div class = "col-9">
-			<a title="See page for author, Public domain, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Breeds_of_dog_from_The_Yuzhakov%27s_Bolshaya_Enc._(1904)_part_2.jpg"><img width="512" alt="Breeds of dog from The Yuzhakov&#039;s Bolshaya Enc. (1904) part 2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Breeds_of_dog_from_The_Yuzhakov%27s_Bolshaya_Enc._%281904%29_part_2.jpg/512px-Breeds_of_dog_from_The_Yuzhakov%27s_Bolshaya_Enc._%281904%29_part_2.jpg"></a>
-			<br>
-			<p> One of Udacity's capstone projects is to use Convolutional Neural Networks to write and algorithm for a dog identification app. The goal is to classify dogs according to their breed. Code for some of the tasks were included in the notebook. 
-		This web app will accept any user-supplied image as input. If a dog is detected in the image, it will provide an estimate of the dog's breed. If a human is detected, it will provide an estimate of the dog breed that the human most closely resembles. 
-		</p>
+	<p>
+		<h1>
+			Upload a picture of a dog or human to determine their dog breed!
+		</h1>
+	</p>
+	
+	<form action="/classify" enctype="multipart/form-data" method="POST" > 
+		<h3> Choose an Image </h3>			
+		
+			<input id = "file" type="file"  name = "file" required>
+			
+		<div> 
+		<input type="submit" value="Submit" id ="submit">
+		</div>
+	</form>
+		
+	<br>
 		{% if msg %}
 			<div>
-				<h3> {{msg}} </h3> 
 				<img src ={{img}} id = "img"/>
+				<br>
+				<h3> {{msg}} </h3> 
 			</div>
+		{% else %}
+		<img width="512" alt="Breeds of dog from The Yuzhakov&#039;s Bolshaya Enc. (1904) part 2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Breeds_of_dog_from_The_Yuzhakov%27s_Bolshaya_Enc._%281904%29_part_2.jpg/512px-Breeds_of_dog_from_The_Yuzhakov%27s_Bolshaya_Enc._%281904%29_part_2.jpg">
 		{% endif %}
-        
-		</div>
-		<div class = "col-3">
-			<form action="/" enctype="multipart/form-data" method="POST" > 
-				<h3> Choose an Image </h3>			
-				<div>
-					<input type="file" id = "file" name = "file" required>
-				</div>
-				<div> 
-				<input type="submit" value="Submit">
-				</div>
-			</form>
-		</div>
-		
-	</div>
 	
-	</div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   </body>
 </html>
 <!https://tutorial101.blogspot.com/2021/04/python-flask-upload-and-display-image.html>
