@@ -20,12 +20,12 @@ from python_backend import my_algo
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
      
-@app.route('/home')
-@app.route('/')
+@app.route('/home', methods=["GET",'POST'])
+@app.route('/',  methods=["GET",'POST'])
 def home():
     return render_template('index.html')
  
-@app.route('/classify', methods=['POST'])
+@app.route('/classify', methods=["GET",'POST'])
 def upload_image():
     if 'file' not in request.files:
         flash('No file part')
