@@ -1,6 +1,6 @@
 Flask==2.2.2
 numpy==1.21.5
-opencv_python==4.7.0.68
+opencv-python-headless
 Pillow==9.4.0
 tensorflow-cpu
 tqdm==4.64.1
