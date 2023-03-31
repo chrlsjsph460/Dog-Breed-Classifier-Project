@@ -4,3 +4,4 @@ opencv_python==4.7.0.68
 Pillow==9.4.0
 tensorflow-cpu
 tqdm==4.64.1
+gunicorn==20.1.0
