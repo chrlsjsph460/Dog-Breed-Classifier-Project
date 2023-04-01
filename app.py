@@ -30,6 +30,7 @@ def upload_image():
         flash('No file part')
         return redirect(request.url)
     file = request.files['file']
+    del request
     if file.filename == '':
         flash('No image selected for uploading')
         return redirect(request.url)
@@ -59,6 +60,7 @@ def upload_image():
         del img
         # convert image to base64 
         encode = b64encode(file_object.getvalue()).decode("ascii")
+        file_object.close()
         del file_object
         # construct dataURL
         base64img = f'data:{mime};base64,{encode}'
