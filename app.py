@@ -30,7 +30,6 @@ def upload_image():
         flash('No file part')
         return redirect(request.url)
     file = request.files['file']
-    del request
     if file.filename == '':
         flash('No image selected for uploading')
         return redirect(request.url)
