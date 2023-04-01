@@ -20,12 +20,11 @@ from python_backend import my_algo
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
      
-@app.route('/home', methods=["GET",'POST'])
-@app.route('/',  methods=["GET",'POST'])
+@app.route('/home')
 def home():
     return render_template('index.html')
  
-@app.route('/classify', methods=["GET",'POST'])
+@app.route('/classify', methods=['POST'])
 def upload_image():
     if 'file' not in request.files:
         flash('No file part')
@@ -37,10 +36,13 @@ def upload_image():
     if file and allowed_file(file.filename):
         # get bytes stream of file
         file_string = file.read()
+        del file
         # convert string to np array
         np_image = np.fromstring(file_string, np.uint8)
+        del file_string
         # convert np_image to image
         img = cv2.imdecode(np_image, cv2.IMREAD_COLOR)
+        del np_image
         # change format to RGB
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         # process the image and get breed message
@@ -54,10 +56,14 @@ def upload_image():
         # get the image and save as stream
         img =Image.fromarray(img.astype('uint8'))
         img.save(file_object, mime.split("/")[1])
+        del img
         # convert image to base64 
         encode = b64encode(file_object.getvalue()).decode("ascii")
+        del file_object
         # construct dataURL
         base64img = f'data:{mime};base64,{encode}'
+        del mime
+        del encode
         
         return render_template('index.html', msg = breed_msg, img = base64img)
 
