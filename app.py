@@ -36,7 +36,6 @@ def upload_image():
     if file and allowed_file(file.filename):
         # get bytes stream of file
         file_string = file.read()
-        del file
         # convert string to np array
         np_image = np.fromstring(file_string, np.uint8)
         del file_string
@@ -53,6 +52,7 @@ def upload_image():
         file_object = io.BytesIO()
         # get the image type. Example... jpeg
         mime = file.mimetype
+        del file
         # get the image and save as stream
         img =Image.fromarray(img.astype('uint8'))
         img.save(file_object, mime.split("/")[1])
