@@ -1,20 +1,28 @@
 import numpy as np
+from tensorflow.keras import models
 from tensorflow.keras.models import load_model
 import cv2  
-from tensorflow.keras.applications.resnet50 import ResNet50, preprocess_input
+
+#from tensorflow.keras.applications import ResNet50
+from tensorflow.keras.applications.resnet import ResNet50
+from tensorflow.keras.applications.resnet import preprocess_input as resnet_preprocess_input
 from tensorflow.keras.preprocessing import image                  
-from tqdm import tqdm
+from tensorflow.keras.applications.inception_v3 import InceptionV3
+from tensorflow.keras.applications.inception_v3 import preprocess_input as inception_preprocess_input
+
+def extract_InceptionV3(tensor):
+    """ Get bottleneck features from InceptionV3 model
+        input: tensor (this should be ? x ? x ?)
+        output: tesor input all the way up tobut not including the softmax layer
+    """
+    return InceptionV3(weights='imagenet', include_top=False).predict(inception_preprocess_input(tensor))
 
 # load array with names of dogs from classifier breed[0] = dog_names[0]
 dog_names = np.load("dog_names.npy")
 
-def extract_VGG19(tensor):
-	from tensorflow.keras.applications.vgg19 import VGG19, preprocess_input
-	return VGG19(weights='imagenet', include_top=False).predict(preprocess_input(tensor))
 
 def extract_Resnet50(tensor):
-	from tensorflow.keras.applications.resnet50 import ResNet50, preprocess_input
-	return ResNet50(weights='imagenet', include_top=False).predict(preprocess_input(tensor))
+	return ResNet50(weights='imagenet', include_top=False).predict(resnet_preprocess_input(tensor))
 
 
 # extract pre-trained face detector
@@ -57,8 +65,8 @@ def ResNet50_predict_labels(img):
     Input - cv2 image
     
     """
-
-    img = preprocess_input(img_to_tensor(img))
+    
+    img = resnet_preprocess_input(img_to_tensor(img))
     return np.argmax(ResNet50_model.predict(img))
 
 def dog_detector(img):
@@ -72,18 +80,20 @@ def dog_detector(img):
     prediction = ResNet50_predict_labels(img)
     return ((prediction <= 268) & (prediction >= 151)) 
 
-VGG19_model = load_model('saved_models/VGG19_model.hdf5')
+model = load_model('saved_models/InceptionV3.hdf5')
 
-def VGG19_predict_breed(img):
+def predict_breed(img):
     """
     return breed of dog from image
     Input - cv2 image
     Output - string dog breed
     """
+    # convert img to tensor
+    img = img_to_tensor(img)
     # extract bottleneck features
-    bottleneck_feature = extract_VGG19(img_to_tensor(img))
+    bottleneck_feature = extract_InceptionV3(img)
     # obtain predicted vector
-    predicted_vector = VGG19_model.predict(bottleneck_feature)
+    predicted_vector = model.predict(bottleneck_feature)
     # return dog breed that is predicted by the model
     return dog_names[np.argmax(predicted_vector)]
 
@@ -95,14 +105,15 @@ def my_algo(img):
     Input - cv2 image
     Output - string message
     """  
+    
     if dog_detector(img):
-        breed =  VGG19_predict_breed(img)
+        breed =  predict_breed(img)
         # predict dog breed
         return f"Hello dog! Your predicted dog breed is {breed}"
         
     elif face_detector(img):
         # predict dog breed
-        breed =  VGG19_predict_breed(img)
+        breed =  predict_breed(img)
         # predict dog breed
         return f"Hello human! Your predicted dog breed is {breed}"
     
