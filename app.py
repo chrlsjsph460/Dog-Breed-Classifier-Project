@@ -15,7 +15,7 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
  
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
-from python_backend_resnet import my_algo
+from python_backend_inception import my_algo
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -44,6 +44,7 @@ def upload_image():
         del np_image
         # change format to RGB
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        #img = cv2.resize(img,(224,224), interpolation = cv.INTER_CUBIC)
         # process the image and get breed message
         breed_msg = my_algo(img)
         
