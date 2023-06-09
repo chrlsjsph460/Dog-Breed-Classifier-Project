@@ -8,6 +8,7 @@
 5.  [Licence](#license)
 6.  [Acknowledgements](#acknowledgements)
 7.  [Screenshots](#screenshots)
+8.  [Improvements](#improvements)
 
 ## Description
 This Udacity project applies convolutional neural networks and transfer learning to an image classification problem. This guided project's goal is to classify the images of dogs based on their breed. A function is built that will accept any user-supplied image as input. If a dog is detected in the image, it will provide an estimate of the dog's breed. If a human is detected, it will provide an estimate of the dog breed that the human resembles.The dog breeds dataset comprises 8,351 dog images from 133 dog categories. The dataset is split into 6,680 training dog images, 835 validation dog images, and 836 test dog images. Networks pre-trained on the ImageNet datasets were used as a starting point. The last layers were removed and additional layers were added to tailor the network to dog breed classification problem. These pre-trained networks have already learned features that are useful for most computer vision problems and are much more accurate than building a model from scratch using only the examples provided. Metrics used to determine how well the model works are validation accuracy and training accuracy. Early stopping was used. The model with the lowest loss on the validation score was chosen. Because this is a proble
@@ -19,18 +20,15 @@ This Udacity project applies convolutional neural networks and transfer learning
 
 There are three major components to this project.
 1. ETL Pipeline: This part of the project was provided by Udacity.
-2. ML Pipeline: dog_recog.py, dog_app.ipynb, and ... maybe more???
-    - Loads data from the SQLite database
-    - Splits the det into training and test sets
-    - Use ImageDataGenerator to augment images
-    - Use transfer learning with VGG19 as base to build classifier.
-    - Fine tune model by setting last block of VGG19 to trainable and slowly optimizing model weights with stochastic gradient descent.
-    - Use transfer learning with ResNet as base to build classifier.
-    - Fine tune model by setting last block of VGG19 to trainable and slowly optimizing model weights with stochastic gradient descent.  
-    - Best model weights are saved for use in web app.
+2. ML Pipeline: 
+    - Dataset is provided pre-partitioined into training, testing, and validation sets.
+    - Using a pre-trained face deterctor from OpenCV, write a function that detects the presence of human faces in an image. 
+    - Bottleneck features for [ResNet50](https://keras.io/api/applications/resnet/#resnet50-function), [InceptionV3](https://keras.io/api/applications/inceptionv3/), and [VGG19](https://keras.io/api/applications/vgg/#vgg19-function) were provided by Udacity.
+    - Use transfer learning by creating a Sequential model with a few layers and using the Bottleneck features as the input to this model.
+    - Best model weights are saved for use in web app. During training, Checkpoints and Earlystopping are used to capture the model with the best validation loss. This model is saved for future use.
 3. Flask Web App
-    - Allow user to upload an image from local directory. Visualizes dataset 
-    - Classify image using one of the classifiers mentioned.
+    - Allow user to upload an image from local directory. 
+    - Classify image as one of the 133 supplied dog breeds, if pos
 
 
 ## Getting Started
@@ -40,9 +38,9 @@ There are three major components to this project.
 - Sklearn
 - Numpy
 - Tensorlow,
+- Keras
 - CV2
 - Web App Library: Flask
-- Data Visualization Library: Plotly
 
 ### Running the Code
 - Using the Webapp
@@ -51,10 +49,13 @@ There are three major components to this project.
     3. On the same machine, in your browser, navigate to [here](http://127.0.0.1:5000/home) to view the web app
 
 ## Notebooks
+
 [Inception Version of Notebook](dog_app_inception.html)
+
 [Resnet Version of Notebook](dog_app_resnet.html)
 
-There is also a VGG19 version of the notebook, but there isn't enough space to store bottleneck features for all three models.
+There is also a VGG19 version of the notebook, but there wasn't enough space to store bottleneck features for all three models.
+
 ## Authors
      -Charles Joseph
 ## License
@@ -67,3 +68,12 @@ There is also a VGG19 version of the notebook, but there isn't enough space to s
 ![Webapp Plots](Example1_dogapp.png "Webapp Plots")
 ![Webapp Plots](Example2_dogapp.png "Webapp Plots")
 ![Webapp Plots](Example3_dogapp.png "Webapp Plots")
+    
+## Improvements
+
+- Fine tune model by setting last block of VGG19, InceptionV3, or ResNet50 to trainable and optimize model weights with stochastic gradient descent.
+
+- Use data augmentation to expand dataset.
+
+- Alter project to identify more than one entity in a picture. For example, if a picture has more than one dog, identify the breed of each dog. 
+
