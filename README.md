@@ -63,6 +63,8 @@ There are three major components to this project.
 
 ## Screenshots
 ![Webapp Plots](Example1_dogapp.png "Webapp Plots")
+![Webapp Plots](Example2_dogapp.png "Webapp Plots")
+![Webapp Plots](Example3_dogapp.png "Webapp Plots")
 *The plots show that there is a large disparity in the number of positive cases. It may be possible to improve model by using resampling methods. Additionally, there are some examples with an unrealistic amount of words. These training examples can probably be deleted or word count can be added as a feature.*
 
 ![Webapp Search](RunSearchSmoke.PNG "Webapp Search")
