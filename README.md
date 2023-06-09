@@ -9,10 +9,7 @@
 6.  [Screenshots](#screenshots)
 
 ## Description
-This Udacity project applies convolutional neural networks and transfer learning to an image classification problem. This guided project's goal is to classify the images of dogs based on their breed. A function is built that will accept any user-supplied image as input. If a dog is detected in the image, it will provide an estimate of the dog's breed. If a human is detected, it will provide an estimate of the dog breed that the human resembles.
-
-Problem Statment: Given the picture of a dog, determine the dog's breed. Given the picture of a human, which dog breed does the human most resemble. If an image of something that is not a dog or a human, tell the user you don't know what the image is. Use convolutional neural networks and transfer learning to determine the breeds. (Expand on this).
-Breeds are identified based on the names of breeds given. (Expand on this). Metrics used to determine how well the model works are validation accuracy and training accuracy. This guides how we choose best model
+This Udacity project applies convolutional neural networks and transfer learning to an image classification problem. This guided project's goal is to classify the images of dogs based on their breed. A function is built that will accept any user-supplied image as input. If a dog is detected in the image, it will provide an estimate of the dog's breed. If a human is detected, it will provide an estimate of the dog breed that the human resembles.The dog breeds dataset comprises 8,351 dog images from 133 dog categories. The dataset is split into 6,680 training dog images, 835 validation dog images, and 836 test dog images. Networks pre-trained on the ImageNet datasets were used as a starting point. The last layers were removed and additional layers were added to tailor the network to dog breed classification problem. These pre-trained networks have already learned features that are useful for most computer vision problems and are much more accurate than building a model from scratch using only the examples provided. Metrics used to determine how well the model works are validation accuracy and training accuracy. Early stopping was used. The model with the lowest loss on the validation score was chosen. Because this is a proble
 
 
 
