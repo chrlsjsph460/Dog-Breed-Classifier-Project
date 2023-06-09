@@ -3,10 +3,11 @@
 ## Table of Contents
 1.  [Description](#description)
 2.  [Getting Started](#getting-started)
-3.  [Authors](#authors)
-4.  [Licence](#license)
-5.  [Acknowledgements](#acknowledgements)
-6.  [Screenshots](#screenshots)
+3.  [Notebooks](#notebooks)
+4.  [Authors](#authors)
+5.  [Licence](#license)
+6.  [Acknowledgements](#acknowledgements)
+7.  [Screenshots](#screenshots)
 
 ## Description
 This Udacity project applies convolutional neural networks and transfer learning to an image classification problem. This guided project's goal is to classify the images of dogs based on their breed. A function is built that will accept any user-supplied image as input. If a dog is detected in the image, it will provide an estimate of the dog's breed. If a human is detected, it will provide an estimate of the dog breed that the human resembles.The dog breeds dataset comprises 8,351 dog images from 133 dog categories. The dataset is split into 6,680 training dog images, 835 validation dog images, and 836 test dog images. Networks pre-trained on the ImageNet datasets were used as a starting point. The last layers were removed and additional layers were added to tailor the network to dog breed classification problem. These pre-trained networks have already learned features that are useful for most computer vision problems and are much more accurate than building a model from scratch using only the examples provided. Metrics used to determine how well the model works are validation accuracy and training accuracy. Early stopping was used. The model with the lowest loss on the validation score was chosen. Because this is a proble
@@ -48,7 +49,12 @@ There are three major components to this project.
     1. Using your command prompt terminal, navigate to the project's directory. 
     2. In the terminal execute `python app.py`
     3. On the same machine, in your browser, navigate to [here](http://127.0.0.1:5000/home) to view the web app
-            
+
+## Notebooks
+[Inception Version of Notebook](dog_app_inception.html)
+[Resnet Version of Notebook](dog_app_resnet.html)
+
+There is also a VGG19 version of the notebook, but there isn't enough space to store bottleneck features for all three models.
 ## Authors
      -Charles Joseph
 ## License
