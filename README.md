@@ -45,14 +45,10 @@ There are three major components to this project.
 
 ### Running the Code
 - Using the Webapp
-    1. Navigate to the project's directory. 
+    1. Using your command prompt terminal, navigate to the project's directory. 
     2. In the terminal execute `python app.py`
     3. On the same machine, in your browser, navigate to [here](http://127.0.0.1:5000/home) to view the web app
-    
-    ![Model Scores](ModelScores.PNG "Model F1, Precision, and Recall by category")
-
-    *Using the `class_weight = "balanced"` parameter greatly improved model performance. `child_alone` scores are 0.0 because no positive cases were provided. It is  benefical to find examples elsewhere.*
-        
+            
 ## Authors
      -Charles Joseph
 ## License
@@ -65,6 +61,3 @@ There are three major components to this project.
 ![Webapp Plots](Example1_dogapp.png "Webapp Plots")
 ![Webapp Plots](Example2_dogapp.png "Webapp Plots")
 ![Webapp Plots](Example3_dogapp.png "Webapp Plots")
-*The plots show that there is a large disparity in the number of positive cases. It may be possible to improve model by using resampling methods. Additionally, there are some examples with an unrealistic amount of words. These training examples can probably be deleted or word count can be added as a feature.*
-
-![Webapp Search](RunSearchSmoke.PNG "Webapp Search")
