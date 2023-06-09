@@ -62,7 +62,7 @@ There are three major components to this project.
 - [The Keras Blog and Francois Chollet](https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html) for providing a tutorial on image augmentation, transfer learning, and model fine-tuning.
 
 ## Screenshots
-![Webapp Plots](PlotlyPlots.PNG "Webapp Plots")
+![Webapp Plots](Example1_dogapp.png "Webapp Plots")
 *The plots show that there is a large disparity in the number of positive cases. It may be possible to improve model by using resampling methods. Additionally, there are some examples with an unrealistic amount of words. These training examples can probably be deleted or word count can be added as a feature.*
 
 ![Webapp Search](RunSearchSmoke.PNG "Webapp Search")
