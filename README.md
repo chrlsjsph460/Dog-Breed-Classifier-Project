@@ -59,7 +59,7 @@ There is also a VGG19 version of the notebook, but there wasn't enough space to 
 ## Authors
      -Charles Joseph
 ## License
-[MIT OPENSOURCE LICENSE](LICENSE.TXT)
+[MIT OPENSOURCE LICENSE](LICENSE)
 ## Acknowledgements
 - [Udacity](https://www.udacity.com/) for designing the project, providing images, and templates. 
 - [The Keras Blog and Francois Chollet](https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html) for providing a tutorial on image augmentation, transfer learning, and model fine-tuning.
