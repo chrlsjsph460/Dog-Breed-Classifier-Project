@@ -27,7 +27,7 @@ There are three major components to this project.
     - Best model weights are saved for use in web app. During training, Checkpoints and Earlystopping are used to capture the model with the best validation loss. This model is saved for future use.
 3. Flask Web App
     - Allow user to upload an image from local directory. 
-    - Classify image as one of the 133 supplied dog breeds, if pos
+    - Classify image as one of the 133 supplied dog breeds.
 
 
 ## Getting Started
